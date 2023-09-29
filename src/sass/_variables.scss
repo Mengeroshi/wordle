@@ -53,7 +53,7 @@ $wd-blue-navy: #262b3c;
     :global(.react-toggle-thumb) {
       background-image: url('../assets/images/switch-night.png');
       border: none;
-      background-position: 64% 42%;
+      box-shadow: none;
       &:focus-visible,
       &:active {
         outline: none;
@@ -69,6 +69,7 @@ $wd-blue-navy: #262b3c;
       background-image: url('../assets/images/switch-day.png');
       border: none;
       background-position: 64% 42%;
+      box-shadow: none;
       &:focus-visible,
       &:active {
         outline: none;

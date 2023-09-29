@@ -14,8 +14,10 @@
     font-size: 40px;
     font-weight: 600;
     letter-spacing: 3px;
+    text-align: center;
   }
-  .wrap {
+  .wrap,
+  .wrap2 {
     display: flex;
     align-items: center;
 
@@ -23,5 +25,8 @@
       @include themeToggle;
       margin-left: 7px;
     }
+  }
+  .wrap2 {
+    justify-content: flex-end;
   }
 }

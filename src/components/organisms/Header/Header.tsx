@@ -19,7 +19,7 @@ export default function Header(
         <QuestionIcon isNightModeTurnedOn={isNightModeTurnedOn} />
       </div>
       <h1>WORDLE</h1>
-      <div className={styles.wrap}>
+      <div className={styles.wrap2}>
         <StatsIcon isNightModeTurnedOn={isNightModeTurnedOn} />
         <Toggle
           defaultChecked={!isNightModeTurnedOn}
