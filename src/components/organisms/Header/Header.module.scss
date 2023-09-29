@@ -1,0 +1,27 @@
+@use '/src/sass/variables' as *;
+.main {
+  @include themeHeader;
+  width: 638px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 15px;
+  & > * {
+    flex: 1;
+  }
+  h1 {
+    font-size: 40px;
+    font-weight: 600;
+    letter-spacing: 3px;
+  }
+  .wrap {
+    display: flex;
+    align-items: center;
+
+    .toggle {
+      @include themeToggle;
+      margin-left: 7px;
+    }
+  }
+}

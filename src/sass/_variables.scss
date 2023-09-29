@@ -16,6 +16,16 @@ $wd-blue-navy: #262b3c;
   }
 }
 
+@mixin theme {
+  &:global(.NIGHT) {
+    background-color: #262b3c;
+    color: white;
+  }
+  &:global(.DAY) {
+    background-color: white;
+  }
+}
+
 @mixin themeModal {
   &:global(.NIGHT) {
     background-color: #262b3c;
@@ -25,5 +35,48 @@ $wd-blue-navy: #262b3c;
   &:global(.DAY) {
     background-color: #f3f3f3;
     border: 1px solid $wd-gray;
+  }
+}
+
+@mixin themeHeader {
+  :global(.NIGHT) & {
+    background-color: rgba(218, 220, 224, 0.03);
+    color: #dadce0;
+  }
+  :global(.DAY) & {
+    background-color: #f3f3f3;
+  }
+}
+
+@mixin themeToggle {
+  :global(.NIGHT) & {
+    :global(.react-toggle-thumb) {
+      background-image: url('../assets/images/switch-night.png');
+      border: none;
+      background-position: 64% 42%;
+      &:focus-visible,
+      &:active {
+        outline: none;
+        box-shadow: none;
+      }
+    }
+    :global(.react-toggle-track) {
+      background-image: url('../assets/images/switch-body-night.png');
+    }
+  }
+  :global(.DAY) & {
+    :global(.react-toggle-thumb) {
+      background-image: url('../assets/images/switch-day.png');
+      border: none;
+      background-position: 64% 42%;
+      &:focus-visible,
+      &:active {
+        outline: none;
+        box-shadow: none;
+      }
+    }
+    :global(.react-toggle-track) {
+      background-image: url('../assets/images/switch-body-day.png');
+    }
   }
 }

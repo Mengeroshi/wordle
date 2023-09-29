@@ -1,3 +1,9 @@
-.App {
-  text-align: center;
+@use '/src/sass/variables' as *;
+
+.main {
+  @include theme;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
