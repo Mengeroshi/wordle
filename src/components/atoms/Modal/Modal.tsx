@@ -11,8 +11,10 @@ export default function Modal(
   useBlurOnOpenModal(isOpen);
   if (isOpen) {
     return ReactDOM.createPortal(
-      <div className={styles.main}>
-        {children}
+      <div className={styles.backdrop}>
+        <div className={styles.main}>
+          {children}
+        </div>
       </div>,
       modalContainer,
     );
