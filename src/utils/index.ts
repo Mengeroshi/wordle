@@ -18,3 +18,6 @@ export const letterStatusAssignation = (
 
   return LetterStatusObject.WRONG;
 };
+
+export const accentRemover = (word: string) =>
+  word.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
