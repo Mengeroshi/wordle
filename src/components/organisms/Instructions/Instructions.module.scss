@@ -1,0 +1,59 @@
+@use '../../../sass/_variables.scss' as *;
+.main {
+  @include themeModal;
+  width: 546px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 54px 34px 24px 34px;
+
+  h1 {
+    font-size: 35px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  p {
+    font-size: 19px;
+    font-weight: 400;
+    text-align: center;
+    span {
+      font-weight: bold;
+    }
+    &:nth-child(3) {
+      margin: 10px 0;
+    }
+
+    &.penultimate {
+      margin: 36px 0 31px 0;
+    }
+    &.last {
+      margin-bottom: 34px;
+    }
+  }
+  h2 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-top: 16px;
+  }
+  .wordDesc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 26px;
+    p {
+      margin-top: 19px;
+    }
+  }
+  button {
+    background-color: $wd-green;
+    border-radius: 5px;
+    font-size: 28px;
+    height: 50px;
+    width: 263px;
+    color: white;
+    font-weight: 800;
+  }
+}
