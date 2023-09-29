@@ -3,6 +3,7 @@ import styles from './App.module.scss';
 import Instructions from './components/organisms/Instructions/Instructions';
 import Header from './components/organisms/Header/Header';
 import WordBoard from './components/organisms/WordBoard/WordBoard';
+import Keyboard from './components/organisms/Keyboard/Keyboard';
 
 function App() {
   const [isInstructionsModalOpen, setIsInstructionsModalOpen] = useState(false);
@@ -14,6 +15,7 @@ function App() {
         setIsNightModeTurnedOn={setIsNightModeTurnedOn}
       />
       <WordBoard />
+      <Keyboard />
       <Instructions
         isOpen={isInstructionsModalOpen}
         onClose={() => { setIsInstructionsModalOpen(false); }}

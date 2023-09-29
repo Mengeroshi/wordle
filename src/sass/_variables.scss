@@ -3,7 +3,16 @@ $fontFam: 'Roboto';
 $wd-green: #6aaa64;
 $wd-yellow: #ceb02c;
 $wd-gray: #939b9f;
+
 $wd-blue-navy: #262b3c;
+$wd-key-wrong: #818181;
+
+$wd-key-unselected-night: #565f7e;
+$wd-key-unselected-day: #d3d6da;
+
+$wd-layer2-day: #f3f3f3;
+$wd-layer2-night: rgba(218, 220, 224, 0.03);
+
 @mixin letterBackground {
   &:global(.CORRECT) {
     background-color: $wd-green;
@@ -40,11 +49,11 @@ $wd-blue-navy: #262b3c;
 
 @mixin themeHeader {
   :global(.NIGHT) & {
-    background-color: rgba(218, 220, 224, 0.03);
+    background-color: $wd-layer2-night;
     color: #dadce0;
   }
   :global(.DAY) & {
-    background-color: #f3f3f3;
+    background-color: $wd-layer2-day;
   }
 }
 

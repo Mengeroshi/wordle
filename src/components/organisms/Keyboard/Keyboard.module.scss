@@ -1,0 +1,27 @@
+@use '/src/sass/variables' as *;
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 638px;
+  gap: 9px;
+  border-radius: 15px;
+  padding: 33px 0;
+  .row {
+    width: fit-content;
+    display: flex;
+    gap: 9.5px;
+    &:nth-child(2) {
+      margin-left: 37px;
+    }
+    &:nth-child(3) {
+      margin-right: 50px;
+    }
+  }
+  :global(.NIGHT) & {
+    background-color: $wd-layer2-night;
+  }
+  :global(.DAY) & {
+    background-color: $wd-layer2-day;
+  }
+}

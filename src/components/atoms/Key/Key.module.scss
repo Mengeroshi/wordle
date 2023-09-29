@@ -1,0 +1,27 @@
+@use '/src/sass/variables' as *;
+.main {
+  width: 44px;
+  height: 51px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  color: white;
+  &:global(.CORRECT) {
+    background-color: $wd-green;
+  }
+  &:global(.WRONG) {
+    background-color: $wd-key-wrong;
+  }
+  &:global(.INTOTHEWORD) {
+    background-color: $wd-yellow;
+  }
+  :global(.NIGHT) &:global(.UNSELECTED) {
+    background-color: $wd-key-unselected-night;
+  }
+  :global(.DAY) &:global(.UNSELECTED) {
+    background-color: $wd-key-unselected-day;
+  }
+}
