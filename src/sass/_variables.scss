@@ -1,0 +1,29 @@
+$fontFam: 'Roboto';
+
+$wd-green: #6aaa64;
+$wd-yellow: #ceb02c;
+$wd-gray: #939b9f;
+$wd-blue-navy: #262b3c;
+@mixin letterBackground {
+  &:global(.CORRECT) {
+    background-color: $wd-green;
+  }
+  &:global(.WRONG) {
+    background-color: $wd-gray;
+  }
+  &:global(.INTOTHEWORD) {
+    background-color: $wd-yellow;
+  }
+}
+
+@mixin themeModal {
+  &:global(.NIGHT) {
+    background-color: #262b3c;
+    border: 1px solid $wd-gray;
+    color: white;
+  }
+  &:global(.DAY) {
+    background-color: #f3f3f3;
+    border: 1px solid $wd-gray;
+  }
+}
