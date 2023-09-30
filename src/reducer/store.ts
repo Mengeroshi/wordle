@@ -2,7 +2,7 @@ import { TReducerState } from '../types';
 
 const wordleStore: TReducerState = {
   isDayThemeTurnedOn: false,
-  isIntructionsModalOpen: false,
+  isIntructionsModalOpen: true,
   isStatsModalOpen: false,
   game: {
     wordToDiscover: null,
@@ -11,6 +11,7 @@ const wordleStore: TReducerState = {
     alreadyPlayedWords: [],
     started: false,
   },
+  stats: [],
 };
 
 export default wordleStore;

@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 import {
   ReducerActionTypesObject,
   TReducerState,
@@ -61,6 +62,29 @@ const wordleReducer = (
       return {
         ...state,
         isStatsModalOpen: !state.isStatsModalOpen,
+      };
+    case ReducerActionTypesObject.GAME_OVER:
+      return {
+        ...state,
+        isStatsModalOpen: true,
+        game: {
+          ...state.game,
+          wordBuffer: '',
+          wordToDiscover: null,
+          wordsInBoard: [],
+          alreadyPlayedWords: [
+            ...state.game.alreadyPlayedWords,
+            state.game.wordToDiscover as string,
+          ],
+          started: false,
+        },
+        stats: [
+          ...state.stats,
+          state.game.wordToDiscover ===
+          state.game.wordsInBoard[state.game.wordsInBoard.length - 1]
+            ? 'WIN'
+            : 'LOOSE',
+        ],
       };
     default:
       return state;

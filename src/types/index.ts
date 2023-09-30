@@ -21,6 +21,7 @@ export const ReducerActionTypesObject = {
   DELETE_ON_WORD_BUFFER: 'DELETE_ON_WORD_BUFFER',
   SUBMIT_WORD_BUFFER: 'SUBMIT_WORD_BUFFER',
   TOGGLE_STATS_MODAL: 'TOGGLE_STATS_MODAL',
+  GAME_OVER: 'GAME_OVER',
 } as const;
 
 type ReducerActionTypesObjectTypes = typeof ReducerActionTypesObject;
@@ -47,6 +48,9 @@ export type TWordleReducerActions =
     }
   | {
       type: ReducerActionTypesObjectTypes['TOGGLE_STATS_MODAL'];
+    }
+  | {
+      type: ReducerActionTypesObjectTypes['GAME_OVER'];
     };
 
 export type TReducerState = {
@@ -60,6 +64,7 @@ export type TReducerState = {
     alreadyPlayedWords: string[];
     started: boolean;
   };
+  stats: string[];
 };
 
 export type TOnclickButtonType = (e: MouseEvent<HTMLButtonElement>) => void;

@@ -14,6 +14,7 @@ type TModifiers = {
   deleteOnBuffer: () => void;
   submitWordBuffer: () => void;
   togleStatsModal: () => void;
+  gameOver: () => void;
 }
 
 type TContextType = { modifiers: TModifiers, wordleState: TReducerState }
@@ -47,6 +48,9 @@ function ContextProvider({ children }: { children: React.ReactNode }) {
   const togleStatsModal = () => {
     dispacht({ type: ReducerActionTypesObject.TOGGLE_STATS_MODAL });
   };
+  const gameOver = () => {
+    dispacht({ type: ReducerActionTypesObject.GAME_OVER });
+  };
 
   const providerValue = useMemo(() => {
     const modifiers = {
@@ -57,6 +61,7 @@ function ContextProvider({ children }: { children: React.ReactNode }) {
       deleteOnBuffer,
       submitWordBuffer,
       togleStatsModal,
+      gameOver,
     };
 
     return { modifiers, wordleState };
