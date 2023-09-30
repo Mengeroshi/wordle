@@ -1,13 +1,35 @@
 import React, {
-  createContext, useContext, useMemo,
+  createContext, useContext, useMemo, useReducer,
 } from 'react';
+import wordleReducer from '../reducer';
+import wordleStore from '../reducer/store';
+import { ReducerActionTypesObject, TReducerState } from '../types';
 
-export const ContextInstance = createContext<unknown>({});
+type TModifiers = {
+  toggleTheme: () => void;
+}
+
+type TContextType = { modifiers: TModifiers, wordleState: TReducerState }
+
+export const ContextInstance = createContext<TContextType>({} as TContextType);
 
 function ContextProvider({ children }: { children: React.ReactNode }) {
-  const value = useMemo(() => ({ greet: 'hola' }), []);
+  const [wordleState, dispacht] = useReducer(wordleReducer, wordleStore);
+
+  const toggleTheme = () => {
+    dispacht({ type: ReducerActionTypesObject.TOGGLE_THEME });
+  };
+
+  const providerValue = useMemo(() => {
+    const modifiers = {
+      toggleTheme,
+    };
+
+    return { modifiers, wordleState };
+  }, [wordleState]);
+
   return (
-    <ContextInstance.Provider value={value}>
+    <ContextInstance.Provider value={providerValue}>
       {children}
     </ContextInstance.Provider>
   );
