@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, {
   createContext, useContext, useMemo, useReducer,
 } from 'react';
@@ -7,7 +8,8 @@ import { ReducerActionTypesObject, TReducerState } from '../types';
 
 type TModifiers = {
   toggleTheme: () => void;
-  toggleInstructionsModalState: () => void
+  toggleInstructionsModalState: () => void,
+  startGame: (wordToDiscover: string) => void;
 }
 
 type TContextType = { modifiers: TModifiers, wordleState: TReducerState }
@@ -23,11 +25,15 @@ function ContextProvider({ children }: { children: React.ReactNode }) {
   const toggleInstructionsModalState = () => {
     dispacht({ type: ReducerActionTypesObject.TOGGLE_INSTRUCTIONS_MODAL_STATE });
   };
+  const startGame = (wordToDiscover: string) => {
+    dispacht({ type: ReducerActionTypesObject.START_GAME, payload: { wordToDiscover } });
+  };
 
   const providerValue = useMemo(() => {
     const modifiers = {
       toggleTheme,
       toggleInstructionsModalState,
+      startGame,
     };
 
     return { modifiers, wordleState };

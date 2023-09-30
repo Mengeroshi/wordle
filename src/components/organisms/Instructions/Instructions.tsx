@@ -3,17 +3,28 @@ import Modal from '../../atoms/Modal/Modal';
 import Word from '../../molecules/Word/Word';
 import styles from './Instructions.module.scss';
 import { useGetWordleContext } from '../../../context';
+import { onStartGame } from '../../../utils';
 
 export default function Instructions() {
   const {
     wordleState: {
       isDayThemeTurnedOn,
       isIntructionsModalOpen,
+      game: { started, alreadyPlayedWords },
     },
     modifiers: {
       toggleInstructionsModalState,
+      startGame,
     },
   } = useGetWordleContext();
+
+  const onClickPlay = () => {
+    toggleInstructionsModalState();
+    if (!started) {
+      onStartGame(startGame, alreadyPlayedWords);
+    }
+  };
+
   return (
     <Modal isOpen={isIntructionsModalOpen}>
       <div className={`${styles.main} ${isDayThemeTurnedOn ? 'DAY' : 'NIGHT'}`}>
@@ -57,7 +68,7 @@ export default function Instructions() {
           Las pistas son independientes para cada letra.
         </p>
         <p className={styles.last}>¡Una palabra nueva cada 5 minutos!</p>
-        <button type="button" onClick={toggleInstructionsModalState}>!JUGAR¡</button>
+        <button type="button" onClick={onClickPlay}>!JUGAR¡</button>
       </div>
     </Modal>
   );

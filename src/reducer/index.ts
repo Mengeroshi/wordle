@@ -8,8 +8,7 @@ const wordleReducer = (
   state: TReducerState,
   action: TWordleReducerActions,
 ): TReducerState => {
-  const { type } = action;
-  switch (type) {
+  switch (action.type) {
     case ReducerActionTypesObject.TOGGLE_INSTRUCTIONS_MODAL_STATE:
       return {
         ...state,
@@ -20,6 +19,16 @@ const wordleReducer = (
         ...state,
         isDayThemeTurnedOn: !state.isDayThemeTurnedOn,
       };
+    case ReducerActionTypesObject.START_GAME: {
+      return {
+        ...state,
+        game: {
+          ...state.game,
+          wordToDiscover: action.payload.wordToDiscover,
+          started: true,
+        },
+      };
+    }
     default:
       return state;
   }
