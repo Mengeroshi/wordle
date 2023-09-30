@@ -5,6 +5,7 @@ import Header from './components/organisms/Header/Header';
 import WordBoard from './components/organisms/WordBoard/WordBoard';
 import Keyboard from './components/organisms/Keyboard/Keyboard';
 import { useGetWordleContext } from './context';
+import StatsModal from './components/molecules/StatsModal/StatsModal';
 
 function App() {
   const { wordleState: { isDayThemeTurnedOn } } = useGetWordleContext();
@@ -14,6 +15,7 @@ function App() {
       <WordBoard />
       <Keyboard />
       <Instructions />
+      <StatsModal />
     </main>
   );
 }

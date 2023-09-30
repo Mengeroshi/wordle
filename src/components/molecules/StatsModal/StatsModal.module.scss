@@ -1,0 +1,58 @@
+@use '/src/sass/variables' as *;
+.main {
+  @include themeModal;
+  width: 546px;
+  height: 480px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  border-radius: 15px;
+  h3 {
+    font-size: 35px;
+    font-weight: 800;
+  }
+  h4 {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    span {
+      font-size: 21px;
+      font-weight: 400;
+    }
+    p {
+      text-transform: uppercase;
+      font-weight: 400;
+      font-size: 19px;
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+
+  button {
+    background-color: $wd-green;
+    border-radius: 5px;
+    font-size: 28px;
+    height: 50px;
+    width: 263px;
+    color: white;
+    font-weight: 800;
+  }
+}
