@@ -20,6 +20,42 @@ export const letterStatusAssignation = (
 
   return LetterStatusObject.WRONG;
 };
+export const keyStatusAssignation = (
+  key: string,
+  wordToDiscover: string | null,
+  wordsInBoard: string[],
+) => {
+  if (wordsInBoard.length === 0 || wordToDiscover === null) {
+    return LetterStatusObject.UNSELECTED;
+  }
+  const wordsInBoardWithKey = wordsInBoard.filter((word) => word.includes(key));
+  if (wordsInBoardWithKey.length === 0) {
+    return LetterStatusObject.UNSELECTED;
+  }
+
+  let atLeastOneCorrect = false;
+  let inTheWord = false;
+
+  wordsInBoardWithKey.forEach((word) => {
+    const indexOfKey = word.indexOf(key);
+    if (wordToDiscover.includes(key)) {
+      if (indexOfKey === wordToDiscover.indexOf(key)) {
+        atLeastOneCorrect = true;
+      } else {
+        inTheWord = true;
+      }
+    }
+  });
+
+  if (atLeastOneCorrect) {
+    return LetterStatusObject.CORRECT;
+  }
+  if (inTheWord) {
+    return LetterStatusObject.INTOTHEWORD;
+  }
+
+  return LetterStatusObject.WRONG;
+};
 
 export const accentRemover = (word: string) =>
   // eslint-disable-next-line implicit-arrow-linebreak
@@ -41,4 +77,15 @@ export const onStartGame = (
 ) => {
   const wordToDiscover = getRandomWordFromList(alreadyPlayedWords);
   startGame(wordToDiscover);
+};
+
+export const onSubmitWordBuffer = (
+  submitWordBuffer: () => void,
+  wordBuffer: string,
+) => {
+  if (wordBuffer.length === 5) {
+    if (namesArray.includes(wordBuffer)) {
+      submitWordBuffer();
+    }
+  }
 };

@@ -1,10 +1,13 @@
 import React from 'react';
 import styles from './Key.module.scss';
-import { TLetterStatus } from '../../../types';
+import { TLetterStatus, TOnclickButtonType } from '../../../types';
 
-export default function Key({ letter, status }: { letter: string, status: TLetterStatus }) {
+export default function Key(
+  { letter, status, onClick }:
+    { letter: string, status: TLetterStatus, onClick: TOnclickButtonType },
+) {
   return (
-    <button type="button" className={`${styles.main} ${status}`}>
+    <button value={letter} onClick={onClick} type="button" className={`${styles.main} ${status}`}>
       {letter.toUpperCase()}
     </button>
   );

@@ -29,6 +29,34 @@ const wordleReducer = (
         },
       };
     }
+    case ReducerActionTypesObject.WRITE_ON_WORD_BUFFER: {
+      return {
+        ...state,
+        game: {
+          ...state.game,
+          wordBuffer: action.payload.wordBuffer,
+        },
+      };
+    }
+    case ReducerActionTypesObject.DELETE_ON_WORD_BUFFER: {
+      return {
+        ...state,
+        game: {
+          ...state.game,
+          wordBuffer: state.game.wordBuffer.slice(0, -1) || '',
+        },
+      };
+    }
+    case ReducerActionTypesObject.SUBMIT_WORD_BUFFER: {
+      return {
+        ...state,
+        game: {
+          ...state.game,
+          wordBuffer: '',
+          wordsInBoard: [...state.game.wordsInBoard, state.game.wordBuffer],
+        },
+      };
+    }
     default:
       return state;
   }

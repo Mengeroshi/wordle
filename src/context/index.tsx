@@ -10,6 +10,9 @@ type TModifiers = {
   toggleTheme: () => void;
   toggleInstructionsModalState: () => void,
   startGame: (wordToDiscover: string) => void;
+  writeOnBuffer: (wordBuffer: string) => void;
+  deleteOnBuffer: () => void;
+  submitWordBuffer: () => void;
 }
 
 type TContextType = { modifiers: TModifiers, wordleState: TReducerState }
@@ -28,12 +31,27 @@ function ContextProvider({ children }: { children: React.ReactNode }) {
   const startGame = (wordToDiscover: string) => {
     dispacht({ type: ReducerActionTypesObject.START_GAME, payload: { wordToDiscover } });
   };
+  const writeOnBuffer = (wordBuffer: string) => {
+    const { game: { started, wordBuffer: currentWordBuffer } } = wordleState;
+    if (started === true && currentWordBuffer.length < 5) {
+      dispacht({ type: ReducerActionTypesObject.WRITE_ON_WORD_BUFFER, payload: { wordBuffer } });
+    }
+  };
+  const deleteOnBuffer = () => {
+    dispacht({ type: ReducerActionTypesObject.DELETE_ON_WORD_BUFFER });
+  };
+  const submitWordBuffer = () => {
+    dispacht({ type: ReducerActionTypesObject.SUBMIT_WORD_BUFFER });
+  };
 
   const providerValue = useMemo(() => {
     const modifiers = {
       toggleTheme,
       toggleInstructionsModalState,
       startGame,
+      writeOnBuffer,
+      deleteOnBuffer,
+      submitWordBuffer,
     };
 
     return { modifiers, wordleState };
