@@ -54,6 +54,7 @@ $wd-layer2-night: rgba(218, 220, 224, 0.03);
   }
   :global(.DAY) & {
     background-color: $wd-layer2-day;
+    color: $wd-key-wrong;
   }
 }
 

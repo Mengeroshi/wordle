@@ -5,26 +5,23 @@ import 'react-toggle/style.css';
 import styles from './Header.module.scss';
 import StatsIcon from '../../atoms/StatsIcon/StatsIcon';
 import QuestionIcon from '../../atoms/QuestionIcon/QuestionIcon';
+import { useGetWordleContext } from '../../../context';
 
-export default function Header(
-  { isNightModeTurnedOn, setIsNightModeTurnedOn }:
-    {
-      isNightModeTurnedOn: boolean;
-      setIsNightModeTurnedOn: React.Dispatch<React.SetStateAction<boolean>>;
-    },
-) {
+export default function Header() {
+  const { wordleState: { isDayThemeTurnedOn }, modifiers: { toggleTheme } } = useGetWordleContext();
+
   return (
     <header className={`${styles.main}`}>
       <div className={styles.wrap}>
-        <QuestionIcon isNightModeTurnedOn={isNightModeTurnedOn} />
+        <QuestionIcon />
       </div>
       <h1>WORDLE</h1>
       <div className={styles.wrap2}>
-        <StatsIcon isNightModeTurnedOn={isNightModeTurnedOn} />
+        <StatsIcon />
         <Toggle
-          defaultChecked={!isNightModeTurnedOn}
+          defaultChecked={isDayThemeTurnedOn}
           icons={false}
-          onChange={() => { setIsNightModeTurnedOn((state) => !state); }}
+          onChange={toggleTheme}
           className={styles.toggle}
         />
       </div>

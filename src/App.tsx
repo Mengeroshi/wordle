@@ -8,21 +8,15 @@ import { useGetWordleContext } from './context';
 
 function App() {
   const [isInstructionsModalOpen, setIsInstructionsModalOpen] = useState(false);
-  const [isNightModeTurnedOn, setIsNightModeTurnedOn] = useState(true);
-  const wordleContext = useGetWordleContext();
-  console.log(wordleContext);
+  const { wordleState: { isDayThemeTurnedOn } } = useGetWordleContext();
   return (
-    <main className={`${styles.main} ${isNightModeTurnedOn ? 'NIGHT' : 'DAY'}`}>
-      <Header
-        isNightModeTurnedOn={isNightModeTurnedOn}
-        setIsNightModeTurnedOn={setIsNightModeTurnedOn}
-      />
+    <main className={`${styles.main} ${isDayThemeTurnedOn ? 'DAY' : 'NIGHT'}`}>
+      <Header />
       <WordBoard />
       <Keyboard />
       <Instructions
         isOpen={isInstructionsModalOpen}
         onClose={() => { setIsInstructionsModalOpen(false); }}
-        isNightModeTurnedOn={isNightModeTurnedOn}
       />
     </main>
   );

@@ -2,21 +2,21 @@ import React from 'react';
 import Modal from '../../atoms/Modal/Modal';
 import Word from '../../molecules/Word/Word';
 import styles from './Instructions.module.scss';
+import { useGetWordleContext } from '../../../context';
 
 export default function Instructions(
   {
     isOpen,
     onClose,
-    isNightModeTurnedOn,
   }: {
     isOpen: boolean;
     onClose: () => void;
-    isNightModeTurnedOn: boolean
   },
 ) {
+  const { wordleState: { isDayThemeTurnedOn } } = useGetWordleContext();
   return (
     <Modal isOpen={isOpen}>
-      <div className={`${styles.main} ${isNightModeTurnedOn ? 'NIGHT' : 'DAY'}`}>
+      <div className={`${styles.main} ${isDayThemeTurnedOn ? 'DAY' : 'NIGHT'}`}>
         <h1>Como jugar</h1>
         <p className={styles.firstPg}>
           Adivina la palabra oculta en cinco intentos.
