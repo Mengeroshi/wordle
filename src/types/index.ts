@@ -20,6 +20,7 @@ export const ReducerActionTypesObject = {
   WRITE_ON_WORD_BUFFER: 'WRITE_ON_WORD_BUFFER',
   DELETE_ON_WORD_BUFFER: 'DELETE_ON_WORD_BUFFER',
   SUBMIT_WORD_BUFFER: 'SUBMIT_WORD_BUFFER',
+  TOGGLE_STATS_MODAL: 'TOGGLE_STATS_MODAL',
 } as const;
 
 type ReducerActionTypesObjectTypes = typeof ReducerActionTypesObject;
@@ -43,11 +44,15 @@ export type TWordleReducerActions =
     }
   | {
       type: ReducerActionTypesObjectTypes['SUBMIT_WORD_BUFFER'];
+    }
+  | {
+      type: ReducerActionTypesObjectTypes['TOGGLE_STATS_MODAL'];
     };
 
 export type TReducerState = {
   isDayThemeTurnedOn: boolean;
   isIntructionsModalOpen: boolean;
+  isStatsModalOpen: boolean;
   game: {
     wordToDiscover: null | string;
     wordBuffer: string;

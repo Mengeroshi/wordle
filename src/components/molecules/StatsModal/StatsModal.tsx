@@ -4,9 +4,16 @@ import styles from './StatsModal.module.scss';
 import { useGetWordleContext } from '../../../context';
 
 export default function StatsModal() {
-  const { wordleState: { isDayThemeTurnedOn } } = useGetWordleContext();
+  const {
+    wordleState: { isDayThemeTurnedOn, isStatsModalOpen },
+    modifiers: { togleStatsModal },
+  } = useGetWordleContext();
+
+  const onClickButton = () => {
+    togleStatsModal();
+  };
   return (
-    <Modal isOpen>
+    <Modal isOpen={isStatsModalOpen}>
       <div className={`${styles.main} ${isDayThemeTurnedOn ? 'DAY' : 'NIGHT'}`}>
         <h3>Estadisticas</h3>
         <div className={styles.row}>
@@ -31,7 +38,7 @@ export default function StatsModal() {
           <p>SIGUIENTE</p>
           <h4>4:10</h4>
         </div>
-        <button type="button">
+        <button type="button" onClick={onClickButton}>
           Aceptar
         </button>
       </div>

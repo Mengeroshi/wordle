@@ -15,6 +15,7 @@ export default function Header() {
     modifiers: {
       toggleInstructionsModalState,
       toggleTheme,
+      togleStatsModal,
     },
   } = useGetWordleContext();
 
@@ -25,7 +26,7 @@ export default function Header() {
       </div>
       <h1>WORDLE</h1>
       <div className={styles.wrap2}>
-        <StatsIcon />
+        <StatsIcon onClick={togleStatsModal} />
         <Toggle
           defaultChecked={isDayThemeTurnedOn}
           icons={false}

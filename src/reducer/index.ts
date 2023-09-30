@@ -57,6 +57,11 @@ const wordleReducer = (
         },
       };
     }
+    case ReducerActionTypesObject.TOGGLE_STATS_MODAL:
+      return {
+        ...state,
+        isStatsModalOpen: !state.isStatsModalOpen,
+      };
     default:
       return state;
   }
