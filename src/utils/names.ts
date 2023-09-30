@@ -12615,4 +12615,4 @@ const namesArray = [
   'zuzón',
 ];
 
-module.exports = namesArray;
+export default namesArray;

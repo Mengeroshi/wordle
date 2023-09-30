@@ -20,4 +20,5 @@ export const letterStatusAssignation = (
 };
 
 export const accentRemover = (word: string) =>
+  // eslint-disable-next-line implicit-arrow-linebreak
   word.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
