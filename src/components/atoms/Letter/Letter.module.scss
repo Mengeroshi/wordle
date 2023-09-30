@@ -1,7 +1,6 @@
 @use '../../../sass/_variables.scss' as *;
 
 .main {
-  @include letterBackground;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,4 +10,22 @@
   height: 76px;
   font-size: 35px;
   border-radius: 5px;
+  &:global(.CORRECT) {
+    background-color: $wd-green;
+  }
+  &:global(.WRONG) {
+    background-color: $wd-gray;
+  }
+  &:global(.INTOTHEWORD) {
+    background-color: $wd-yellow;
+  }
+  &:global(.DEFAULT) {
+    background-color: $wd-void-letter;
+  }
+  :global(.DAY) &:global(.DEFAULT) {
+    color: black;
+  }
+  &.void {
+    color: transparent !important;
+  }
 }

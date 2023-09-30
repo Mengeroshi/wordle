@@ -4,7 +4,7 @@ import { TLetterStatus } from '../../../types';
 
 export default function Letter({ letter, status }: { letter: string, status: TLetterStatus }) {
   return (
-    <div className={`${styles.main} ${status}`}>
+    <div className={`${styles.main} ${status} ${letter === '*' ? styles.void : ''}`}>
       {letter.toUpperCase()}
     </div>
   );

@@ -40,7 +40,7 @@ export default function Instructions() {
         </p>
         <h2>Ejemplos</h2>
         <div className={styles.wordDesc}>
-          <Word word="gatos" wordToDiscover="gxxxx" />
+          <Word word="gatos" wordToDiscover="gxxxx" editing={false} />
           <p>
             La letra
             <span> G </span>
@@ -48,7 +48,7 @@ export default function Instructions() {
           </p>
         </div>
         <div className={styles.wordDesc}>
-          <Word word="vocal" wordToDiscover="xxxxc" />
+          <Word word="vocal" wordToDiscover="xxxxc" editing={false} />
           <p>
             La letra
             <span> C </span>
@@ -56,7 +56,7 @@ export default function Instructions() {
           </p>
         </div>
         <div className={styles.wordDesc}>
-          <Word word="canto" wordToDiscover="xxxxx" />
+          <Word word="canto" wordToDiscover="xxxxx" editing={false} />
           <p>
             La letra
             <span> O </span>

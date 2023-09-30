@@ -7,6 +7,7 @@ export const LetterStatusObject = {
   CORRECT: 'CORRECT',
   INTOTHEWORD: 'INTOTHEWORD',
   WRONG: 'WRONG',
+  DEFAULT: 'DEFAULT',
 } as const;
 
 export type TLetterStatus =

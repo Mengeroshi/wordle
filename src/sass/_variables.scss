@@ -13,17 +13,7 @@ $wd-key-unselected-day: #d3d6da;
 $wd-layer2-day: #f3f3f3;
 $wd-layer2-night: rgba(218, 220, 224, 0.03);
 
-@mixin letterBackground {
-  &:global(.CORRECT) {
-    background-color: $wd-green;
-  }
-  &:global(.WRONG) {
-    background-color: $wd-gray;
-  }
-  &:global(.INTOTHEWORD) {
-    background-color: $wd-yellow;
-  }
-}
+$wd-void-letter: rgba(147, 155, 159, 0.3);
 
 @mixin theme {
   &:global(.NIGHT) {
