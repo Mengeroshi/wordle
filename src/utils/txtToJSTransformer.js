@@ -10,7 +10,8 @@ fs.readFile('words.txt', 'utf8', (err, data) => {
   const names = data
     .trim()
     .split('\n')
-    .filter((name) => name.length === 5);
+    .filter((name) => name.length === 5)
+    .map((word) => word.normalize('NFD').replace(/[\u0300-\u036f]/g, ''));
 
   const jsCode = `const namesArray = ${JSON.stringify(
     names,
