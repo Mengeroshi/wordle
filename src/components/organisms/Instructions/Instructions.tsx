@@ -4,18 +4,18 @@ import Word from '../../molecules/Word/Word';
 import styles from './Instructions.module.scss';
 import { useGetWordleContext } from '../../../context';
 
-export default function Instructions(
-  {
-    isOpen,
-    onClose,
-  }: {
-    isOpen: boolean;
-    onClose: () => void;
-  },
-) {
-  const { wordleState: { isDayThemeTurnedOn } } = useGetWordleContext();
+export default function Instructions() {
+  const {
+    wordleState: {
+      isDayThemeTurnedOn,
+      isIntructionsModalOpen,
+    },
+    modifiers: {
+      toggleInstructionsModalState,
+    },
+  } = useGetWordleContext();
   return (
-    <Modal isOpen={isOpen}>
+    <Modal isOpen={isIntructionsModalOpen}>
       <div className={`${styles.main} ${isDayThemeTurnedOn ? 'DAY' : 'NIGHT'}`}>
         <h1>Como jugar</h1>
         <p className={styles.firstPg}>
@@ -57,7 +57,7 @@ export default function Instructions(
           Las pistas son independientes para cada letra.
         </p>
         <p className={styles.last}>¡Una palabra nueva cada 5 minutos!</p>
-        <button type="button" onClick={onClose}>!JUGAR¡</button>
+        <button type="button" onClick={toggleInstructionsModalState}>!JUGAR¡</button>
       </div>
     </Modal>
   );

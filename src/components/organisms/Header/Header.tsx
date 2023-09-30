@@ -8,12 +8,20 @@ import QuestionIcon from '../../atoms/QuestionIcon/QuestionIcon';
 import { useGetWordleContext } from '../../../context';
 
 export default function Header() {
-  const { wordleState: { isDayThemeTurnedOn }, modifiers: { toggleTheme } } = useGetWordleContext();
+  const {
+    wordleState: {
+      isDayThemeTurnedOn,
+    },
+    modifiers: {
+      toggleInstructionsModalState,
+      toggleTheme,
+    },
+  } = useGetWordleContext();
 
   return (
     <header className={`${styles.main}`}>
       <div className={styles.wrap}>
-        <QuestionIcon />
+        <QuestionIcon onClick={toggleInstructionsModalState} />
       </div>
       <h1>WORDLE</h1>
       <div className={styles.wrap2}>

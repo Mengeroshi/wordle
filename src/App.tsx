@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './App.module.scss';
 import Instructions from './components/organisms/Instructions/Instructions';
 import Header from './components/organisms/Header/Header';
@@ -7,17 +7,13 @@ import Keyboard from './components/organisms/Keyboard/Keyboard';
 import { useGetWordleContext } from './context';
 
 function App() {
-  const [isInstructionsModalOpen, setIsInstructionsModalOpen] = useState(false);
   const { wordleState: { isDayThemeTurnedOn } } = useGetWordleContext();
   return (
     <main className={`${styles.main} ${isDayThemeTurnedOn ? 'DAY' : 'NIGHT'}`}>
       <Header />
       <WordBoard />
       <Keyboard />
-      <Instructions
-        isOpen={isInstructionsModalOpen}
-        onClose={() => { setIsInstructionsModalOpen(false); }}
-      />
+      <Instructions />
     </main>
   );
 }

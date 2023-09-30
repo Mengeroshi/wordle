@@ -7,6 +7,7 @@ import { ReducerActionTypesObject, TReducerState } from '../types';
 
 type TModifiers = {
   toggleTheme: () => void;
+  toggleInstructionsModalState: () => void
 }
 
 type TContextType = { modifiers: TModifiers, wordleState: TReducerState }
@@ -19,10 +20,14 @@ function ContextProvider({ children }: { children: React.ReactNode }) {
   const toggleTheme = () => {
     dispacht({ type: ReducerActionTypesObject.TOGGLE_THEME });
   };
+  const toggleInstructionsModalState = () => {
+    dispacht({ type: ReducerActionTypesObject.TOGGLE_INSTRUCTIONS_MODAL_STATE });
+  };
 
   const providerValue = useMemo(() => {
     const modifiers = {
       toggleTheme,
+      toggleInstructionsModalState,
     };
 
     return { modifiers, wordleState };
